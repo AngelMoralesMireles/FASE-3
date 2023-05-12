@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dietas</title>
+ <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <!--Página que aparece al presionar el botón de Dietas como instructuor.-->
+    <div><!--Barra de menu-->
+    <a href="inicio.html" class="container">Inicio</a>
+    <a href="ejercicios.html" class="container">Ejercicios</a>
+    <a href="dietas.html" class="container">Dietas</a>
+    <a href="crear_contenido.html" class="container">Crear Contenido</a>
+    </div>
+
+    <div><!--Filtros-->
+        <h1 style="margin-top: 40px; margin-left: 50px;">Filtros</h1>
+        <h2> Tipo de cuerpo</h2>
+        <div class="menu">
+        <select id="TipoCuerpo" onchange="categorizarTipoCuerpo()">
+            <option value="">Seleccione un Tipo de cuerpo</option>
+            <option value="Ectomorfo">Ectomorfo</option>
+            <option value="Mesomorfo">Mesomorfo</option>
+            <option value="Endomorfo">Endomorfo</option>
+          </select>
+        </div>
+          <div class="documentos" id="Documentos"></div>
+
+          <script>
+            function categorizarTipoCuerpo() {
+              var seleccion = document.getElementById("TipoCuerpo").value;
+              var seccionDocumentos = document.getElementById("Documentos");
+          
+              // Limpiar contenido de la sección
+              seccionDocumentos.innerHTML = "";
+          
+              // Código para obtener y mostrar los archivos según la categoría seleccionada
+              switch (seleccion) {
+                case "Ectomorfo":
+                  // Obtener y mostrar archivos para cuerpo ectomorfo
+                  seccionDocumentos.innerHTML = "Mostrar archivos para cuerpo ectomorfo";
+                  break;
+                case "Mesomorfo":
+                  // Obtener y mostrar archivos para cuerpo mesomorfo
+                  seccionDocumentos.innerHTML = "Mostrar archivos para cuerpo mesomorfo";
+                  break;
+                  case "Endomorfo":
+                  // Obtener y mostrar archivos para cuerpo endomorfo
+                  seccionDocumentos.innerHTML = "Mostrar archivos para cuerpo endomorfo";
+                  break;
+                default:
+                  break;
+              }
+            }
+          </script>
+      
+
+        <h2>Objetivo</h2>
+        <div class="menu">
+<select id="Objetivo" onchange="categorizarObjetivo()">
+  <option value="">Seleccione un objetivo</option>
+  <option value="Pérdida de peso">Pérdida de peso</option>
+  <option value="Musculatura">Musculatura</option>
+  <option value="Fitness">Fitness</option>
+</select>
+        </div>
+
+<div class="documentos" id="Documentos2"></div>
+
+<script>
+    function categorizarObjetivo() {
+      var seleccion = document.getElementById("Objetivo").value;
+      var seccionDocumentos2 = document.getElementById("Documentos2");
+  
+      // Limpiar contenido de la sección
+      seccionDocumentos2.innerHTML = "";
+  
+      // Código para obtener y mostrar los archivos según la categoría seleccionada
+      switch (seleccion) {
+        case "Pérdida de peso":
+          // Obtener y mostrar archivos Pérdida de peso
+          seccionDocumentos2.innerHTML = "Mostrar archivos con el objetivo pérdida de peso";
+          break;
+        case "Musculatura":
+          // Obtener y mostrar archivos para musculatura
+          seccionDocumentos2.innerHTML = "Mostrar archivos con el objetivo de ganar musculatura";
+          break;
+        case "Fitness":
+          // Obtener y mostrar archivos Fitness
+          seccionDocumentos2.innerHTML = "Mostrar archivos con el objetivo Fitness";
+          break;
+        default:
+          break;
+      }
+    }
+  </script>
+    </div>
+</body>
+</html>
