@@ -23,3 +23,65 @@ margin-left: 25px;
   .documentos {
     display: inline-block;
   }
+
+  .button-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.green-button {
+    background-color: green;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    margin-right: 10px;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu {
+  text-align: center;
+}
+
+.document-form {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.document-form input {
+  margin: 10px;
+}
+
+.document-form button {
+  background-color: green;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-column {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.field-label {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

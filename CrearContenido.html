@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Contenido</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <!--Página que aparece al presionar el botón de ejercicios como instructuor.-->
+    <div><!--Barra de menu-->
+    <a href="index.html" class="container">Inicio</a>
+    <a href="ejercicios.html" class="container">Ejercicios</a>
+    <a href="dietas.html" class="container">Dietas</a>
+    <h1 style="display: inline-block; margin-left: 750px;" id="pageTitle">CREAR CONTENIDO</h1>
+<div class="button-container">
+  <button id="button1" class="green-button" onclick="mostrarMenuSubirArchivos(1)">SUBIR EJERCICIO</button>
+  <button id="button2" class="green-button" onclick="mostrarMenuSubirArchivos(2)">SUBIR DIETA</button>
+</div>
+
+<div id="menuSubirArchivos1" class="menu-container"  style="display: none;">
+  <div class="menu">
+    <input type="file" id="archivoSubido1" onchange="abrirFormulario(1)">
+</div>
+</div>
+
+<div id="menuSubirArchivos2" class="menu-container"  style="display: none;">
+  <div class="menu">
+    <input type="file" id="archivoSubido2" onchange="abrirFormulario(2)">
+</div>
+</div>
+
+<div id="documentForm1" class="document-form">
+  <div class="form-container">
+  <div class="form-column">
+    <p class="field-label">&nbsp;</p>
+  <input type="text" id="nombreInstructor1" placeholder="Nombre del instructor">
+  <input type="text" id="tituloDocumento1" placeholder="Título">
+</div>
+<div class="form-column">
+  <p class="field-label">Recomendado a:</p>
+  <select id="sexo1">
+      <option value="masculino">Masculino</option>
+      <option value="femenino">Femenino</option>
+  </select>
+  <input type="text" id="nivel1" placeholder="Nivel">
+</div>
+</div>
+  <button onclick="guardarDocumento(1)">Guardar Documento</button>
+</div>
+
+
+<div id="documentForm2" class="document-form">
+  <div class="form-container">
+  <div class="form-column">
+    <p class="field-label">&nbsp;</p>
+  <input type="text" id="nombreInstructor2" placeholder="Nombre del instructor">
+  <input type="text" id="tituloDocumento2" placeholder="Título">
+</div>
+<div class="form-column">
+  <p class="field-label">Recomendado a:</p>
+  <input type="text" id="tipoCuerpo2" placeholder="Tipo de cuerpo">
+  <input type="text" id="objetivo2" placeholder="Objetivo">
+</div>
+  </div>
+  <button onclick="guardarDocumento(2)">Guardar Documento</button>
+</div>
+
+
+
+<script src="css/CrearContenido.js"></script>
+
+</body>
+</html>
