@@ -3,6 +3,7 @@ body{
     background-color: #e8e8e8;
     max-width: 1000px;
     margin: auto;
+   
     
 }
 
@@ -52,11 +53,6 @@ body{
  
 }
 
-
-.haciaIzquierda{
-    padding-left: 20px;
-
-}
 #container{
     display: flex;
     justify-content: right;

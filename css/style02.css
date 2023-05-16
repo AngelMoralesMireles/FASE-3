@@ -1,0 +1,99 @@
+
+body{
+    background-color: #e8e8e8;
+    max-width: 1000px;
+    margin: auto;
+    
+}
+
+.menu{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    color:black;
+    padding: 20px;
+    display: block;
+    background-color:#FE1300;
+   
+}
+
+.menu li{
+    display: inline-block;
+    text-align: center;
+    border: solid;
+}
+
+.menu li a:hover{
+    background-color: aqua;
+}
+
+.marginLeft{
+    margin-left: 615px;
+ 
+}
+
+
+.form-register{
+    width: 400px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    box-shadow: 7px 13px 37px #000;
+}
+.form-register h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+
+}
+.controls{
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+}
+
+.form-register p {
+    height: 40px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+#sesion{
+   
+    border: 1px solid;
+    width: 100px;
+    text-align: center;
+    background-color: rgb(175, 173, 173);
+    
+}
+.form-register a:hover {
+    color:black ;
+    text-decoration: underline;
+}
+
+.botons {
+    width: 100px;
+    background:rgb(7, 243, 7);
+    border: 1px solid;
+    padding: 12px;
+    color: black;
+    margin: 16px 0;
+    font-size: 16px;
+    height: 50px;
+    text-align: center;
+
+}
+
+
+
