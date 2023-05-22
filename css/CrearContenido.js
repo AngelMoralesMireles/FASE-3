@@ -49,3 +49,51 @@ function guardarDocumento(menuId) {
     console.log("Sexo:", sexo);
     console.log("Nivel:", nivel);
 }
+
+function categorizarSexo() {
+    var seleccion = document.getElementById("Sexo").value;
+    var seccionDocumentos = document.getElementById("Documentos");
+
+    // Limpiar contenido de la sección
+    seccionDocumentos.innerHTML = "";
+
+    // Código para obtener y mostrar los archivos según la categoría seleccionada
+    switch (seleccion) {
+      case "Hombre":
+        // Obtener y mostrar archivos para hombres
+        seccionDocumentos.innerHTML = "Mostrar archivos para hombres";
+        break;
+      case "Mujer":
+        // Obtener y mostrar archivos para mujer
+        seccionDocumentos.innerHTML = "Mostrar archivos para mujeres";
+        break;
+      default:
+        break;
+    }
+  }
+
+  function categorizarNivel() {
+    var seleccion = document.getElementById("Nivel").value;
+    var seccionDocumentos2 = document.getElementById("Documentos2");
+
+    // Limpiar contenido de la sección
+    seccionDocumentos2.innerHTML = "";
+
+    // Código para obtener y mostrar los archivos según la categoría seleccionada
+    switch (seleccion) {
+      case "Principiante":
+        // Obtener y mostrar archivos Principiantes
+        seccionDocumentos2.innerHTML = "Mostrar archivos para principiante";
+        break;
+      case "Intermedio":
+        // Obtener y mostrar archivos Intermedios
+        seccionDocumentos2.innerHTML = "Mostrar archivos intermedios";
+        break;
+      case "Avanzado":
+        // Obtener y mostrar archivos Avanzados
+        seccionDocumentos2.innerHTML = "Mostrar archivos avanzados";
+        break;
+      default:
+        break;
+    }
+  }
