@@ -82,18 +82,23 @@ body{
     text-decoration: underline;
 }
 
-.botons {
-    width: 100px;
-    background:rgb(7, 243, 7);
-    border: 1px solid;
-    padding: 12px;
-    color: black;
-    margin: 16px 0;
-    font-size: 16px;
-    height: 50px;
-    text-align: center;
+.registro{
+        background-color: #e8e8e8; 
+        color: black; 
+        padding: 10px 20px; 
+        font-size: 16px; 
+        border: solid; 
+        cursor: pointer;
+        border-radius: 4px; 
+        margin-right: 1200px;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
 }
+      .registro:hover {
+        background-color: #45a049; 
+      }
+      
 
 
 
