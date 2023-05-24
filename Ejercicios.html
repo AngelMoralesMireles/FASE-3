@@ -10,17 +10,18 @@
 
 <body>
   <!--Página que aparece al presionar el botón de ejercicios como instructuor.-->
-    <div><!--Barra de menu-->
-    <a href="index.html" class="container">Inicio</a>
-    <a href="ejercicios.html" class="container">Ejercicios</a>
-    <a href="dietas.html" class="container">Dietas</a>
-    <a href="CrearContenido.html" class="container">Crear Contenido</a>
-    </div>
+    <!--Barra de menu-->
+    <ul class="menu">
+
+      <li><a  href="index.html">Inicio</a></li>
+      <li><a  href="dietas.html">Dietas</a></li>
+      <li  class="marginLeft"><a href="registro.html">Registro</a></li>
+      </ul>
 
     <div><!--Filtros-->
         <h1 style="margin-top: 40px; margin-left: 50px;">Filtros</h1>
         <h2> Sexo</h2>
-        <div class="menu">
+        <div class="filtro">
         <select id="Sexo" onchange="categorizarSexo()">
             <option value="">Seleccione un sexo</option>
             <option value="Hombre">Hombre</option>
@@ -31,7 +32,7 @@
       
 
         <h2>Nivel</h2>
-        <div class="menu">
+        <div class="filtro">
 <select id="Nivel" onchange="categorizarNivel()">
   <option value="">Seleccione un nivel</option>
   <option value="Principiante">Principiante</option>

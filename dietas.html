@@ -10,17 +10,19 @@
 
 <body>
   <!--Página que aparece al presionar el botón de Dietas como instructuor.-->
-    <div><!--Barra de menu-->
-    <a href="index.html" class="container">Inicio</a>
-    <a href="ejercicios.html" class="container">Ejercicios</a>
-    <a href="dietas.html" class="container">Dietas</a>
-    <a href="CrearContenido.html" class="container">Crear Contenido</a>
-    </div>
+    <!--Barra de menu-->
+    <ul class="menu">
+
+      <li><a  href="index.html">Inicio</a></li>
+      <li><a  href="Ejercicios.html">Ejercicios</a></li>
+      <li  class="marginLeft"><a href="registro.html">Registro</a></li>
+      </ul>
+   
 
     <div><!--Filtros-->
         <h1 style="margin-top: 40px; margin-left: 50px;">Filtros</h1>
         <h2> Tipo de cuerpo</h2>
-        <div class="menu">
+        <div class="filtro">
         <select id="TipoCuerpo" onchange="categorizarTipoCuerpo()">
             <option value="">Seleccione un Tipo de cuerpo</option>
             <option value="Ectomorfo">Ectomorfo</option>
@@ -60,7 +62,7 @@
       
 
         <h2>Objetivo</h2>
-        <div class="menu">
+        <div class="filtro">
 <select id="Objetivo" onchange="categorizarObjetivo()">
   <option value="">Seleccione un objetivo</option>
   <option value="Pérdida de peso">Pérdida de peso</option>

@@ -1,5 +1,8 @@
 body{
-    background-color: rgb(212, 212, 212);
+  background-color: #e8e8e8;
+  max-width: 1000px;
+  margin: auto;
+ 
 }
 
 .container {
@@ -15,10 +18,35 @@ h2{
 select {
 margin-left: 25px;
 }
-.menu {
-    display: inline-block;
-    margin-right: 10px;
-  }
+.menu{
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin: auto;
+}
+
+.menu li a{
+  text-decoration: none;
+  color:black;
+  padding: 20px;
+  display: block;
+  background-color:#FE1300;
+ 
+}
+
+.menu li{
+  display: inline-block;
+  text-align: center;
+  border: solid;
+}
+
+.menu li a:hover{
+  background-color: aqua;
+}
+.marginLeft{
+  margin-left: 600px;
+
+}
 
   .documentos {
     display: inline-block;
@@ -84,4 +112,11 @@ margin-left: 25px;
   text-align: center;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.filtro{
+
+  margin-left: 0%;
+
+
 }
