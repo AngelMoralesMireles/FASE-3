@@ -5,41 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style02.css">
-    <title> Registro</title>
+    <title>Registro</title>
 </head>
 <body>
-    
-    <ul class="menu">
+    <form method="POST" action="registro.php">
+        <ul class="menu">
 
-        <li><a  href="index.html">Inicio</a></li>
-        <li><a  href="Ejercicios.html">Ejercicios</a></li>
-        <li><a  href="dietas.html">Dietas</a></li>
-        </ul>
-        <section class="form-registro">
-            <h4>Nombre</h4>
-            <input class="controls" type="text" name="NombreUsuario" id="NombreUsuario" placeholder="Ingrese su nombre completo">
-            <h4>Correo</h4>
-            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo">
-            <h4>contraseña</h4>
-            <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña">
-            <input type="radio" name="opcion" id="opcion1" value="opcion1">
-        
-  <label for="opcion1">Entrenador</label>
-  
-<input type="radio" name="opcion" id="opcion2" value="opcion2">
-  
- 
-<label for="opcion2">Administrador</label>
+            <li><a  href="index.html">Inicio</a></li>
+            <li><a  href="Ejercicios.html">Ejercicios</a></li>
+            <li><a  href="dietas.html">Dietas</a></li>
+            </ul>
+            <section class="form-registro">
+                <br><br>
+        <label for="nombre">Nombre de Usuario:</label>
+        <input class="controls" type="text" name="nombre" id="nombre" required><br>
 
-<button type="button" class="registro">Registrar</button>
-            
+        <label for="correo">Correo:</label>
+        <input class="controls" type="email" name="correo" id="correo" required><br>
 
-            <div id="sesion">
+        <label for="contrasena">Contraseña:</label>
+        <input class="controls" type="password" name="contrasena" id="contrasena" required><br>
+
+        <label for="rol">Rol:</label>
+        <select name="rol" id="rol">
+            <option value="Instructor">Instructor</option>
+            <option value="Administrador">Administrador</option>
+        </select><br>
+
+        <input type="submit" class="registro" value="Registrarse">
+
+        <div id="sesion">
             <p><a href="#">Iniciar sesión</a></p>
            </div>
-        </section>
 
-
-    
+    </section>
+    </form>
 </body>
 </html>
