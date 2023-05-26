@@ -39,40 +39,58 @@
 </div>
 
 <div id="documentForm1" class="document-form">
-  <div class="form-container">
-  <div class="form-column">
-    <p class="field-label">&nbsp;</p>
-  <input type="text" id="nombreInstructor1" placeholder="Nombre del instructor">
-  <input type="text" id="tituloDocumento1" placeholder="Título">
+  <form action="formulario1.php" method="POST">
+    <div class="form-container">
+      <div class="form-column">
+        <p class="field-label">&nbsp;</p>
+        <input type="text" id="nombreInstructor1" name="nombreInstructor1" placeholder="Nombre del instructor">
+        <input type="text" id="tituloDocumento1" name="tituloDocumento1" placeholder="Título">
+      </div>
+      <div class="form-column">
+        <p class="field-label">Recomendado a:</p>
+        <select id="sexo1" name="sexo1">
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+        </select>
+        <select id="nivel1" name="nivel1">
+          <option value="principiante">Principiante</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="avanzado">Avanzado</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit">Guardar Documento</button>
+  </form>
 </div>
-<div class="form-column">
-  <p class="field-label">Recomendado a:</p>
-  <select id="sexo1">
-      <option value="masculino">Masculino</option>
-      <option value="femenino">Femenino</option>
-  </select>
-  <input type="text" id="nivel1" placeholder="Nivel">
-</div>
-</div>
-  <button onclick="guardarDocumento(1)">Guardar Documento</button>
-</div>
+
 
 
 <div id="documentForm2" class="document-form">
-  <div class="form-container">
-  <div class="form-column">
-    <p class="field-label">&nbsp;</p>
-  <input type="text" id="nombreInstructor2" placeholder="Nombre del instructor">
-  <input type="text" id="tituloDocumento2" placeholder="Título">
+  <form action="formulario2.php" method="POST">
+    <div class="form-container">
+      <div class="form-column">
+        <p class="field-label">&nbsp;</p>
+        <input type="text" id="nombreInstructor2" name="nombreInstructor2" placeholder="Nombre del instructor">
+        <input type="text" id="tituloDocumento2" name="tituloDocumento2" placeholder="Título">
+      </div>
+      <div class="form-column">
+        <p class="field-label">Recomendado a:</p>
+        <select id="tipoCuerpo2" name="tipoCuerpo2" placeholder="Tipo de cuerpo">
+          <option value="Endomorfo">Endomorfo</option>
+          <option value="Ectomorfo">Ectomorfo</option>
+          <option value="Mesomorfo">Mesomorfo</option>
+        </select>
+        <select id="objetivo2" name="objetivo2" placeholder="Objetivo">
+          <option value="Pérdida de peso">Pérdida de peso</option>
+          <option value="Musculatura">Musculatura</option>
+          <option value="Fitness">Fitness</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit">Guardar Documento</button>
+  </form>
 </div>
-<div class="form-column">
-  <p class="field-label">Recomendado a:</p>
-  <input type="text" id="tipoCuerpo2" placeholder="Tipo de cuerpo">
-  <input type="text" id="objetivo2" placeholder="Objetivo">
-</div>
-  </div>
-  <button onclick="guardarDocumento(2)">Guardar Documento</button>
-</div>
+
 
 
 
