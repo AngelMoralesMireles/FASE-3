@@ -8,7 +8,7 @@
     <title>Registro</title>
 </head>
 <body>
-    <form method="POST" action="registro.php">
+    <form action="registro.php" method="POST">
         <ul class="menu">
 
             <li><a  href="index.html">Inicio</a></li>
@@ -17,28 +17,27 @@
             </ul>
             <section class="form-registro">
                 <br><br>
-        <label for="nombre">Nombre de Usuario:</label>
-        <input class="controls" type="text" name="nombre" id="nombre" required><br>
-
-        <label for="correo">Correo:</label>
-        <input class="controls" type="email" name="correo" id="correo" required><br>
-
-        <label for="contrasena">Contraseña:</label>
-        <input class="controls" type="password" name="contrasena" id="contrasena" required><br>
-
+        <label for="nombre">Nombre de usuario:</label>
+        <input type="text" class="controls" name="nombre" required><br>
+    
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" class="controls" name="correo" required><br>
+    
+        <label for="contraseña">Contraseña:</label>
+        <input type="password"class="controls"  name="contraseña" required><br>
+    
         <label for="rol">Rol:</label>
-        <select name="rol" id="rol">
-            <option value="Instructor">Instructor</option>
-            <option value="Administrador">Administrador</option>
+        <select name="rol" required>
+          <option value="">Seleccione un rol</option>
+          <option value="1">Instructor</option>
+          <option value="2">Administrador</option>
         </select><br>
-
-        <input type="submit" class="registro" value="Registrarse">
-
-        <div id="sesion">
-            <p><a href="#">Iniciar sesión</a></p>
-           </div>
-
+    
+        <input type="submit" class="registro" value="Registro">
     </section>
-    </form>
+</form>
 </body>
 </html>
+
+
+

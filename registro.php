@@ -1,46 +1,27 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "instructorzone";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST["nombre"];
+    $correo = $_POST["correo"];
+    $contraseña = $_POST["contraseña"];
+    $rol = $_POST["rol"];
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+    $servername = "127.0.0.1:3308";
+    $username = "root";
+    $password = "";
+    $database = "instructorzone";
+    $conn = mysqli_connect($servername, $username, $password, $database);
 
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Establecer el conjunto de caracteres del servidor
-$conn->set_charset("utf8mb4");
-
-// Obtener los datos del formulario
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$contrasena = $_POST['contrasena'];
-$rol = $_POST['rol'];
-
-// Obtener el ID del rol seleccionado
-$sql = "SELECT IdRol FROM Rol WHERE NombreRol = '$rol'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $rolId = $row['IdRol'];
-
-    // Preparar la consulta SQL para insertar los datos
-    $sql = "INSERT INTO Usuarios (NombreUsuario, Correo, Contrasena, Rol) VALUES ('$nombre', '$correo', '$contrasena', '$rolId')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Registro guardado correctamente";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+    if (!$conn) {
+        die("La conexión falló: " . mysqli_connect_error());
     }
-} else {
-    echo "No se encontró el ID del rol seleccionado";
-}
 
-// Cerrar la conexión
-$conn->close();
+    $sql = "INSERT INTO Usuarios (NombreUsuario, Correo, Contraseña, Rol) VALUES ('$nombre', '$correo', '$contraseña', '$rol')";
+    if (mysqli_query($conn, $sql)) {
+        echo "Registro exitoso";
+    } else {
+        echo "Error al registrar: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+}
 ?>
