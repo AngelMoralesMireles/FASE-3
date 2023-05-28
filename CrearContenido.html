@@ -17,84 +17,72 @@
       <li><a  href="Ejercicios.html">Ejercicios</a></li>
       <li><a  href="dietas.html">Dietas</a></li>
       </ul>
+     
+          <h1>Registro de Documentos</h1>
+      
+          <form method="POST" action="CrearContenido.php">
+              <label for="tipo_documento">Tipo de Documento:</label>
+              <select name="tipo_documento" id="tipo_documento">
+                <option value=" ">Selecciona un tipo de documento</option>
+                  <option value="dieta">Dieta</option>
+                  <option value="entrenamiento">Entrenamiento</option>
+              </select>
+              <br><br>
+      
+              <label for="titulo_documento">Título del Documento:</label>
+              <input type="text" name="titulo_documento" required>
+              <br><br>
+      
+              <label for="correo">Correo del Autor:</label>
+              <input type="email" name="correo" required>
+              <br><br>
+      
+              <label for="contenido_documento">Contenido del Documento:</label>
+              <textarea name="contenido_documento" required></textarea>
+              <br><br>
+      
+              <!-- Campos adicionales para la tabla Dietas -->
+              <div id="dieta_fields" style="display: none;">
+                  <label for="tipo_cuerpo">Tipo de Cuerpo:</label>
+                  <select name="tipo_cuerpo">
+                      <option value="1">Ectomorfo</option>
+                      <option value="2">Mesomorfo</option>
+                      <option value="3">Endomorfo</option>
+                  </select>
+                  <br><br>
+      
+                  <label for="objetivo">Objetivo:</label>
+                  <select name="objetivo">
+                      <option value="1">Pérdida de peso</option>
+                      <option value="2">Musculatura</option>
+                      <option value="3">Fitness</option>
+                  </select>
+                  <br><br>
+              </div>
+      
+              <!-- Campos adicionales para la tabla Entrenamientos -->
+              <div id="entrenamiento_fields" style="display: none;">
+                  <label for="sexo">Sexo:</label>
+                  <select name="sexo">
+                      <option value="1">Masculino</option>
+                      <option value="2">Femenino</option>
+                  </select>
+                  <br><br>
+      
+                  <label for="nivel">Nivel:</label>
+                  <select name="nivel">
+                      <option value="1">Principiante</option>
+                      <option value="2">Intermedio</option>
+                      <option value="3">Avanzado</option>
+                  </select>
+                  <br><br>
+              </div>
+      
+              <input type="submit" value="Registrar">
+          </form>
 
-
-
-    <h1 id="pageTitle">CREAR CONTENIDO</h1>
-<div class="button-container">
-  <button id="button1" class="green-button" onclick="mostrarMenuSubirArchivos(1)">SUBIR EJERCICIO</button>
-  <button id="button2" class="green-button" onclick="mostrarMenuSubirArchivos(2)">SUBIR DIETA</button>
-</div>
-
-<div id="menuSubirArchivos1" class="menu-container"  style="display: none;">
-  <div class="menu">
-    <input type="file" id="archivoSubido1" onchange="abrirFormulario(1)">
-</div>
-</div>
-
-<div id="menuSubirArchivos2" class="menu-container"  style="display: none;">
-  <div class="menu">
-    <input type="file" id="archivoSubido2" onchange="abrirFormulario(2)">
-</div>
-</div>
-
-<div id="documentForm1" class="document-form">
-  <form action="formulario1.php" method="POST">
-    <div class="form-container">
-      <div class="form-column">
-        <p class="field-label">&nbsp;</p>
-        <input type="text" id="nombreInstructor1" name="nombreInstructor1" placeholder="Nombre del instructor">
-        <input type="text" id="tituloDocumento1" name="tituloDocumento1" placeholder="Título">
-      </div>
-      <div class="form-column">
-        <p class="field-label">Recomendado a:</p>
-        <select id="sexo1" name="sexo1">
-          <option value="masculino">Masculino</option>
-          <option value="femenino">Femenino</option>
-        </select>
-        <select id="nivel1" name="nivel1">
-          <option value="principiante">Principiante</option>
-          <option value="intermedio">Intermedio</option>
-          <option value="avanzado">Avanzado</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit">Guardar Documento</button>
-  </form>
-</div>
-
-
-
-<div id="documentForm2" class="document-form">
-  <form action="formulario2.php" method="POST">
-    <div class="form-container">
-      <div class="form-column">
-        <p class="field-label">&nbsp;</p>
-        <input type="text" id="nombreInstructor2" name="nombreInstructor2" placeholder="Nombre del instructor">
-        <input type="text" id="tituloDocumento2" name="tituloDocumento2" placeholder="Título">
-      </div>
-      <div class="form-column">
-        <p class="field-label">Recomendado a:</p>
-        <select id="tipoCuerpo2" name="tipoCuerpo2" placeholder="Tipo de cuerpo">
-          <option value="Endomorfo">Endomorfo</option>
-          <option value="Ectomorfo">Ectomorfo</option>
-          <option value="Mesomorfo">Mesomorfo</option>
-        </select>
-        <select id="objetivo2" name="objetivo2" placeholder="Objetivo">
-          <option value="Pérdida de peso">Pérdida de peso</option>
-          <option value="Musculatura">Musculatura</option>
-          <option value="Fitness">Fitness</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit">Guardar Documento</button>
-  </form>
-</div>
-
-
-
-
-<script src="css/CrearContenido.js"></script>
-
-</body>
-</html>
+          <script src="js/CrearContenido.js"></script>
+        
+      </body>
+      </html>
+      
