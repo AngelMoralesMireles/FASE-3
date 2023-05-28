@@ -49,8 +49,11 @@ body{
 }
 
 .marginLeft{
-    margin-left: 600px;
+    margin-left: 80px;
  
+}
+.marginLeftLess{
+    margin-left: 300px;
 }
 
 #container{
