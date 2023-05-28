@@ -7,30 +7,44 @@ body{
     
 }
 
-.menu{
+.menu {
     list-style: none;
     padding: 0;
-    width: 100%;
-    margin: auto;
-}
-
-.menu li a{
-    text-decoration: none;
-    color:black;
-    padding: 20px;
-    display: block;
-    background-color:#FE1300;
-   
-}
-
-.menu li{
-    display: inline-block;
+    margin: 0;
     text-align: center;
-    border: solid;
 }
 
-.menu li a:hover{
+.menu li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    background-color: #FE1300;
+    padding: 10px 20px;
+    white-space: nowrap;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.menu li a.specialButton {
+    width: 150px; /* Ajusta el ancho según sea necesario */
+}
+
+.menu li.marginLeft a {
+    margin-left: 20px;
+}
+
+.menu li.marginLeftLess a {
+    margin-left: 40px;
+}
+
+.menu li a:hover {
     background-color: aqua;
+    outline: none;
 }
 
 #encabezado{

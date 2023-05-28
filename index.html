@@ -5,37 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style01.css">
-    <title>Página fitness</title>
+    <title>Instructor Zone</title>
 </head>
 <body>
-
     <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Ejercicios.html">Ejercicios</a></li>
+        <li><a href="dietas.html">Dietas</a></li>
+        <li class="marginLeft"><a href="inicioSesion.html" class="specialButton" id="inicioSesionButton">Inicio de Sesión</a></li>
+        <li class="marginLeft button"><a href="CrearContenido.html" class="specialButton" id="crearContenidoButton">Crear Contenido</a></li>
+        <li class="button"><a href="cerrarSesion.php" class="specialButton" id="cerrarSesionButton" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+        <li class="marginLeft"><a href="registro.html">Registro</a></li>
 
-        <li><a  href="index.html">Inicio</a></li>
-        <li><a  href="Ejercicios.html">Ejercicios</a></li>
-        <li><a  href="dietas.html">Dietas</a></li>
-        <li><a  href="CrearContenido.html">Crear Contenido</a></li>
-        <li  class="marginLeftLess"><a href="inicioSesion.html">Inicio de Sesión</a></li>
-        <li  class="marginLeft"><a href="registro.html">Registro</a></li>
-        </ul>
-<main>
-<h1 id="encabezado">BIENVENIDO</h1>
-<div id="container">
-    <div>
-<pre id="encabezado2">
-En esta página web podras
+    </ul>
+
+    <main>
+        <h1 id="encabezado">BIENVENIDO</h1>
+        <div id="container">
+            <div>
+                <pre id="encabezado2">
+En esta página web podrás
 encontrar diferentes formas
 para tener un mejor físico ya
-sea por medio de rutinas de 
+sea por medio de rutinas de
 ejercicios o mediante dietas,
 todo esto para que tengas
 una vida saludable.
-</pre>
-</div>
+                </pre>
+            </div>
 
-    <img id="logo" src="imagenes/logo.png">
+            <img id="logo" src="imagenes/logo.png">
+        </div>
+    </main>
 
-    </div>
-</main>
+    <script>
+        // Verificar si el usuario ha iniciado sesión
+        var sesionIniciada = getCookie('sesion_iniciada');
+        if (sesionIniciada === 'true') {
+            var nombreUsuario = getCookie('nombre_usuario');
+  document.getElementById('usuarioActual').textContent = nombreUsuario;
+            document.getElementById('crearContenidoButton').style.display = 'block';
+            document.getElementById('cerrarSesionButton').style.display = 'block';
+            document.getElementById('inicioSesionButton').style.display = 'none';
+        } else {
+            document.getElementById('crearContenidoButton').style.display = 'none';
+            document.getElementById('cerrarSesionButton').style.display = 'none';
+            document.getElementById('inicioSesionButton').style.display = 'block';
+        }
+
+        // Función para obtener el valor de una cookie por su nombre
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return '';
+        }
+    </script>
 </body>
 </html>

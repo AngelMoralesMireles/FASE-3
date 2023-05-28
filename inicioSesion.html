@@ -4,35 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style02.css">
-    <title> Inicio de Sesión</title>
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
+    <!--Barra de menu-->
     <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="dietas.html">Dietas</a></li>
+        <li class="marginLeft"><a href="registro.html">Registro</a></li>
+    </ul>
 
-        <li><a  href="index.html">Inicio</a></li>
-        <li><a  href="Ejercicios.html">Ejercicios</a></li>
-        <li><a  href="dietas.html">Dietas</a></li>
-        </ul>
-        <section class="form-registro">
-          
-            <h4>Correo</h4>
-            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo">
-            <h4>contraseña</h4>
-            <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña">
-           
-        
- 
-
-<button type="button" class="registro">Iniciar sesión</button>
-            
-
-          
-           
-        </section>
-
-
-    
+    <div><!--Iniciar sesión-->
+        <h1 style="margin-top: 40px; margin-left: 50px;">Iniciar sesión</h1>
+        <div class="formulario">
+            <form action="iniciosesion.php" method="POST">
+                <div>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" style="margin-top: 20px;" id="password" name="password" required>
+                </div>
+                <div>
+                    <input type="submit" style="margin-top: 20px;" value="Iniciar sesión">
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
