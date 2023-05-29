@@ -1,4 +1,3 @@
-
 body{
     background-color: #e8e8e8;
     max-width: 1000px;
@@ -23,7 +22,7 @@ body{
     text-decoration: none;
     color: black;
     display: inline-block;
-    background-color: #FE1300;
+    background-color:  #FE1300;
     padding: 10px 20px;
     white-space: nowrap;
     border: 2px solid black;
@@ -47,38 +46,43 @@ body{
     outline: none;
 }
 
-#encabezado{
-    font-size: 60px;
-    color:black;
-    text-align: left;
-    text-shadow: 3px 3px 3px #7f7b7b;
-   
-}
-#encabezado2{
-    font-size: 30px;
-    color:black;
-    text-align: left;
-
-
+.validar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
 }
 
-.marginLeft{
-    margin-left: 80px;
- 
-}
-.marginLeftLess{
-    margin-left: 200px;
+.validar li {
+    display: inline-block;
+    margin-left: 10px;
 }
 
-#container{
-    display: flex;
-    justify-content: right;
+.validar li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    background-color:  #e8e8e8;
+    padding: 10px 20px;
+    white-space: nowrap;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-top: 200px;
 }
-#logo{
-    width: 600px;
-    height: 300px;
-    border: solid;
-    float: right;
-    display: flex;
 
+.validar li a.specialButton {
+    width: 150px; /* Ajusta el ancho según sea necesario */
+}
+
+.validar li.marginLeft a {
+    margin-left: 10px;
+}
+
+.validar li.marginLeftLess a {
+    margin-left: 40px;
+}
+
+.validar li a:hover {
+    background-color: green;
+    outline: none;
 }
