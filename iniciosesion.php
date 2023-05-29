@@ -1,4 +1,6 @@
 <?php
+session_start(); // Inicia la sesión (debe colocarse antes de cualquier salida HTML)
+
 $servername = "127.0.0.1:3308";
 $username = "root";
 $password = "";
@@ -23,9 +25,11 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $rolUsuario = $row['Rol'];
+    $idUsuario = $row['IdUsuario'];
 
     // Usuario autenticado correctamente
     // Establecer la cookie de sesión
+    $_SESSION['id_usuario'] = $idUsuario;
     setcookie('sesion_iniciada', 'true', time() + (86400 * 30), '/'); // Caduca después de 30 días (ajusta el tiempo según tus necesidades)
     setcookie('rol_usuario', $rolUsuario, time() + (86400 * 30), '/'); // Almacena el valor del rol del usuario en una cookie
 

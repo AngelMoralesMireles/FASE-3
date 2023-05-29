@@ -7,7 +7,8 @@ if (sesionIniciada === 'true') {
     document.getElementById('crearContenidoButton').style.display = 'block';
     document.getElementById('cerrarSesionButton').style.display = 'block';
     document.getElementById('inicioSesionButton').style.display = 'none';
-
+    document.getElementById('crearRegistroButton').style.display = 'none';
+    
     if (rolUsuario === 2) {
         document.getElementById('validarContenidoButton').style.display = 'block'; // Mostrar el botón "Administrar Documentos" solo para usuarios con rol 2 (administradores)
         document.getElementById('datosInstructoresButton').style.display = 'block'; // Mostrar el botón "Datos instructores" solo para usuarios con rol 2 (administradores)
@@ -23,6 +24,7 @@ if (sesionIniciada === 'true') {
     document.getElementById('inicioSesionButton').style.display = 'block';
     document.getElementById('validarContenidoButton').style.display = 'none';
     document.getElementById('datosInstructoresButton').style.display = 'none';
+    document.getElementById('crearRegistroButton').style.display = 'block';
 }
 
 // Función para obtener el valor de una cookie por su nombre

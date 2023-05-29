@@ -21,66 +21,65 @@
           <h1>Registro de Documentos</h1>
       
           <form method="POST" action="CrearContenido.php">
-              <label for="tipo_documento">Tipo de Documento:</label>
-              <select name="tipo_documento" id="tipo_documento">
+            <input type="hidden" name="id_usuario" value="<?php echo $idUsuario; ?>">
+            <label for="tipo_documento">Tipo de Documento:</label>
+            <select name="tipo_documento" id="tipo_documento">
                 <option value=" ">Selecciona un tipo de documento</option>
-                  <option value="dieta">Dieta</option>
-                  <option value="entrenamiento">Entrenamiento</option>
-              </select>
-              <br><br>
-      
-              <label for="titulo_documento">Título del Documento:</label>
-              <input type="text" name="titulo_documento" required>
-              <br><br>
-      
-              <label for="correo">Correo del Autor:</label>
-              <input type="email" name="correo" required>
-              <br><br>
-      
-              <label for="contenido_documento">Contenido del Documento:</label>
-              <textarea name="contenido_documento" required></textarea>
-              <br><br>
-      
-              <!-- Campos adicionales para la tabla Dietas -->
-              <div id="dieta_fields" style="display: none;">
-                  <label for="tipo_cuerpo">Tipo de Cuerpo:</label>
-                  <select name="tipo_cuerpo">
-                      <option value="1">Ectomorfo</option>
-                      <option value="2">Mesomorfo</option>
-                      <option value="3">Endomorfo</option>
-                  </select>
-                  <br><br>
-      
-                  <label for="objetivo">Objetivo:</label>
-                  <select name="objetivo">
-                      <option value="1">Pérdida de peso</option>
-                      <option value="2">Musculatura</option>
-                      <option value="3">Fitness</option>
-                  </select>
-                  <br><br>
-              </div>
-      
-              <!-- Campos adicionales para la tabla Entrenamientos -->
-              <div id="entrenamiento_fields" style="display: none;">
-                  <label for="sexo">Sexo:</label>
-                  <select name="sexo">
-                      <option value="1">Masculino</option>
-                      <option value="2">Femenino</option>
-                  </select>
-                  <br><br>
-      
-                  <label for="nivel">Nivel:</label>
-                  <select name="nivel">
-                      <option value="1">Principiante</option>
-                      <option value="2">Intermedio</option>
-                      <option value="3">Avanzado</option>
-                  </select>
-                  <br><br>
-              </div>
-      
-              <input id="botonSubirArchivo" type="submit" value="Registrar">
-          </form>
-
+                <option value="dieta">Dieta</option>
+                <option value="entrenamiento">Entrenamiento</option>
+            </select>
+            <br><br>
+    
+            <label for="titulo_documento">Título del Documento:</label>
+            <input type="text" name="titulo_documento" required>
+            <br><br>
+    
+            <label for="contenido_documento">Contenido del Documento:</label>
+            <textarea name="contenido_documento" required></textarea>
+            <br><br>
+    
+            <!-- Campos adicionales para la tabla Dietas -->
+            <div id="dieta_fields" style="display: none;">
+                <label for="tipo_cuerpo">Tipo de Cuerpo:</label>
+                <select name="tipo_cuerpo">
+                    <option value="1">Ectomorfo</option>
+                    <option value="2">Mesomorfo</option>
+                    <option value="3">Endomorfo</option>
+                </select>
+                <br><br>
+    
+                <label for="objetivo">Objetivo:</label>
+                <select name="objetivo">
+                    <option value="1">Pérdida de peso</option>
+                    <option value="2">Musculatura</option>
+                    <option value="3">Fitness</option>
+                </select>
+                <br><br>
+            </div>
+    
+            <!-- Campos adicionales para la tabla Entrenamientos -->
+            <div id="entrenamiento_fields" style="display: none;">
+                <label for="sexo">Sexo:</label>
+                <select name="sexo">
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                </select>
+                <br><br>
+    
+                <label for="nivel">Nivel:</label>
+                <select name="nivel">
+                    <option value="1">Principiante</option>
+                    <option value="2">Intermedio</option>
+                    <option value="3">Avanzado</option>
+                </select>
+                <br><br>
+            </div>
+    
+            <button type="submit">Crear Documento</button>
+        </form>
+          <div class="botones">
+            <button onclick="window.location.href='documentos.html'">Administrar Documentos</button>
+        </div>   
           <script src="js/CrearContenido.js"></script>
         
       </body>

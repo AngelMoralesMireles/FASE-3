@@ -1,36 +1,30 @@
 <?php
+session_start(); // Inicia la sesión (debe colocarse antes de cualquier salida HTML)
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los datos del formulario
-    $tipo_documento = $_POST['tipo_documento'];
-    $titulo_documento = $_POST['titulo_documento'];
-    $correo = $_POST['correo'];
-    $contenido_documento = $_POST['contenido_documento'];
+    // Obtener el ID del usuario autenticado de la sesión
+    if (isset($_SESSION['id_usuario'])) {
+        $id_autor = $_SESSION['id_usuario'];
 
-    // Otros datos necesarios
-    $status = 1; // Valor predeterminado para el status
+        // Obtener los demás datos del formulario
+        $tipo_documento = $_POST['tipo_documento'];
+        $titulo_documento = $_POST['titulo_documento'];
+        $contenido_documento = $_POST['contenido_documento'];
 
-    // Conexión a la base de datos
-    $servername = "127.0.0.1:3308";
-    $username = "root";
-    $password = "";
-    $database = "instructorzone";
+        // Otros datos necesarios
+        $status = 1; // Valor predeterminado para el status
 
-    $conn = new mysqli($servername, $username, $password, $database);
+        // Conexión a la base de datos
+        $servername = "127.0.0.1:3308";
+        $username = "root";
+        $password = "";
+        $database = "instructorzone";
 
-    if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
-    }
+        $conn = new mysqli($servername, $username, $password, $database);
 
-    // Consulta para obtener el ID del usuario en base al correo
-    $usuario_query = "SELECT IdUsuario FROM Usuarios WHERE Correo = ?";
-    $stmt = $conn->prepare($usuario_query);
-    $stmt->bind_param("s", $correo);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $id_autor = $row['IdUsuario'];
+        if ($conn->connect_error) {
+            die("Error de conexión: " . $conn->connect_error);
+        }
 
         // Consulta para insertar el documento en la tabla Documentos
         $documento_query = "INSERT INTO Documentos (TituloDocumento, IdAutor, Status, ContenidoDocumento) VALUES (?, ?, ?, ?)";
@@ -75,11 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Error al registrar el entrenamiento";
             }
         }
-    } else {
-        echo "Usuario no encontrado";
-    }
 
-    $stmt->close();
-    $conn->close();
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "Usuario no autenticado";
+    }
 }
 ?>
