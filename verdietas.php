@@ -13,8 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obtener los entrenamientos y las dietas
-$sql = "SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario FROM Documentos INNER JOIN Entrenamientos ON Documentos.IdDocumento = Entrenamientos.DocumentoId INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario UNION SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario FROM Documentos INNER JOIN Dietas ON Documentos.IdDocumento = Dietas.DocumentoId INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario";
-$result = $conn->query($sql);
+$sql = "SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario FROM Documentos INNER JOIN Dietas ON Documentos.IdDocumento = Dietas.DocumentoId INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario";$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Crear una tabla para mostrar los resultados

@@ -12,8 +12,8 @@ if ($conn->connect_error) {
     die("Error al conectar a la base de datos: " . $conn->connect_error);
 }
 
-// Consulta SQL para obtener los entrenamientos y las dietas
-$sql = "SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario FROM Documentos INNER JOIN Entrenamientos ON Documentos.IdDocumento = Entrenamientos.DocumentoId INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario UNION SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario FROM Documentos INNER JOIN Dietas ON Documentos.IdDocumento = Dietas.DocumentoId INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario";
+// Consulta SQL para obtener los entrenamientos
+$sql = "SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario FROM Documentos INNER JOIN Entrenamientos ON Documentos.IdDocumento = Entrenamientos.DocumentoId INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     echo '<tr><th>Título</th><th>Autor</th><th>Contenido</th></tr>';
 
     while ($row = $result->fetch_assoc()) {
-        // Mostrar los datos de cada entrenamiento o dieta en una fila de la tabla
+        // Mostrar los datos de cada entrenamiento en una fila de la tabla
         echo '<tr>';
         echo '<td>' . $row['TituloDocumento'] . '</td>';
         echo '<td>' . $row['NombreUsuario'] . '</td>';
@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
 
     echo '</table>';
 } else {
-    echo 'No se encontraron entrenamientos ni dietas.';
+    echo 'No se encontraron entrenamientos.';
 }
 
 // Cerrar la conexión
