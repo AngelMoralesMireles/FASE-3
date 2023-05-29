@@ -1,34 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ver Entrenamientos</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Función para obtener y mostrar el documento
-            function verDocumento(id) {
-                $.ajax({
-                    url: 'verentrenamientos.php',
-                    type: 'GET',
-                    data: { id: id },
-                    success: function(response) {
-                        // Mostrar la respuesta en el elemento con el ID "resultado"
-                        $('#resultado').html(response);
-                    },
-                    error: function() {
-                        alert('Error al obtener el documento');
-                    }
-                });
-            }
 
-            // Llamar a la función verDocumento con el ID del documento deseado
-            verDocumento(1); // Aquí puedes especificar el ID del documento a visualizar
-        });
-    </script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Documentos de Ejercicios</title>
 </head>
 <body>
-    <h1>Ver Entrenamientos</h1>
-    <div id="resultado"></div>
+  <h1>Documentos de Ejercicios</h1>
+
+  <form action="verentrenamientos.php" method="post">
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" name="sexo">
+      <option value="">Todos</option>
+      <option value="1">Hombre</option>
+      <option value="2">Mujer</option>
+    </select>
+
+    <label for="nivel">Nivel:</label>
+    <select id="nivel" name="nivel">
+      <option value="">Todos</option>
+      <option value="1">Principiante</option>
+      <option value="2">Intermedio</option>
+      <option value="3">Avanzado</option>
+    </select>
+
+    <button type="submit">Filtrar</button>
+  </form>
 </body>
 </html>

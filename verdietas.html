@@ -1,34 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ver Dietas</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Función para obtener y mostrar el documento
-            function verDocumento(id) {
-                $.ajax({
-                    url: 'verdietas.php',
-                    type: 'GET',
-                    data: { id: id },
-                    success: function(response) {
-                        // Mostrar la respuesta en el elemento con el ID "resultado"
-                        $('#resultado').html(response);
-                    },
-                    error: function() {
-                        alert('Error al obtener el documento');
-                    }
-                });
-            }
 
-            // Llamar a la función verDocumento con el ID del documento deseado
-            verDocumento(1); // Aquí puedes especificar el ID del documento a visualizar
-        });
-    </script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Documentos de Dietas</title>
 </head>
 <body>
-    <h1>Ver Dietas</h1>
-    <div id="resultado"></div>
+  <h1>Documentos de Dietas</h1>
+
+  <form action="verdietas.php" method="post">
+    <label for="tipoCuerpo">Tipo de Cuerpo:</label>
+    <select id="tipoCuerpo" name="tipoCuerpo">
+      <option value="">Todos</option>
+      <option value="1">Ectomorfo</option>
+      <option value="2">Mesomorfo</option>
+      <option value="3">Endomorfo</option>
+    </select>
+
+    <label for="objetivo">Objetivo:</label>
+    <select id="objetivo" name="objetivo">
+      <option value="">Todos</option>
+      <option value="1">Pérdida de peso</option>
+      <option value="2">Musculatura</option>
+      <option value="3">Fitness</option>
+    </select>
+
+    <button type="submit">Filtrar</button>
+  </form>
 </body>
 </html>
