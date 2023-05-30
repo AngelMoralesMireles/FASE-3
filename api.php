@@ -157,7 +157,7 @@ if (isset($_POST["crear"])) {
                 <label for="rol">Rol:</label>
                 <select name="rol">
                     <option value="1" <?php if ($usuario["Rol"] == 1) { echo "selected"; } ?>>Administrador</option>
-                    <option value="2" <?php if ($usuario["Rol"] == 2) { echo "selected"; } ?>>Usuario</option>
+                    <option value="2" <?php if ($usuario["Rol"] == 2) { echo "selected"; } ?>>Instructor</option>
                 </select><br>
 
                 <input type="submit" name="actualizar" value="Actualizar">

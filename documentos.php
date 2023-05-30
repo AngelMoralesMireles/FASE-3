@@ -85,13 +85,16 @@ function eliminarDocumento($conn, $idDocumento)
 {
     $idDocumento = intval($idDocumento);
 
-    $sql = "DELETE FROM documentos WHERE IdDocumento = $idDocumento";
+// Eliminar el documento
+$sql = "DELETE FROM documentos WHERE IdDocumento = $idDocumento";
+$result = $conn->query($sql);
 
-    if ($conn->query($sql) === TRUE) {
-        return true;
-    } else {
-        return false;
-    }
+if ($result === TRUE) {
+    return true;
+} else {
+    return false;
+}
+
 }
 
 // Obtener la lista de documentos
@@ -176,20 +179,19 @@ if (isset($_POST["actualizar"])) {
     }
 }
 
-    // Eliminar
-    if (isset($_POST["eliminar"])) {
-        $idDocumento = $_POST["idDocumento"];
+// Eliminar
+if (isset($_POST["eliminar"])) {
+    $idDocumento = $_POST["idDocumento"];
 
-        if (eliminarDocumento($conn, $idDocumento)) {
-            // Documento eliminado exitosamente
-            $exitoEliminar = "Documento eliminado exitosamente.";
-        } else {
-            // Error al eliminar el documento
-            $errorEliminar = "Error al eliminar el documento.";
-        }
+    if (eliminarDocumento($conn, $idDocumento)) {
+        // Documento eliminado exitosamente
+        $exitoEliminar = "Documento eliminado exitosamente.";
+    } else {
+        // Error al eliminar el documento
+        $errorEliminar = "Error al eliminar el documento.";
     }
 }
-
+}
 // Cerrar la conexión a la base de datos
 $conn->close();
 ?>

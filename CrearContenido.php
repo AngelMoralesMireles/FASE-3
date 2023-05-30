@@ -48,8 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Mostrar mensaje de éxito o error después de la inserción
             if ($stmt->affected_rows > 0) {
+                echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
                 echo "Registro de dieta exitoso";
             } else {
+                echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
                 echo "Error al registrar la dieta";
             }
         } elseif ($tipo_documento == "entrenamiento") {
@@ -64,8 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Mostrar mensaje de éxito o error después de la inserción
             if ($stmt->affected_rows > 0) {
+                echo '<link rel="stylesheet" href="css/index.css">';
+                echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';            
                 echo "Registro de entrenamiento exitoso";
             } else {
+                echo '<link rel="stylesheet" href="css/index.css">';
+                echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';            
                 echo "Error al registrar el entrenamiento";
             }
         }
