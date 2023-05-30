@@ -16,31 +16,31 @@ if ($conn->connect_error) {
 $tipoCuerpo = $_POST['tipoCuerpo'];
 $objetivo = $_POST['objetivo'];
 
-// Consulta SQL para obtener los documentos de dietas filtrados por tipo de cuerpo y objetivo
-$sql = "SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario, Tipocuerpo.NombreTipoCuerpo, Objetivo.NombreObjetivo FROM Documentos 
+$sql = "SELECT Documentos.IdDocumento, Documentos.TituloDocumento, Documentos.ContenidoDocumento, Usuarios.NombreUsuario, tipocuerpo.NombreTipoCuerpo, objetivo.NombreObjetivo FROM Documentos 
         INNER JOIN Dietas ON Documentos.IdDocumento = Dietas.DocumentoId 
         INNER JOIN Usuarios ON Documentos.IdAutor = Usuarios.IdUsuario
         INNER JOIN Tipocuerpo ON Dietas.TipoCuerpo = Tipocuerpo.IdTipoCuerpo
-        INNER JOIN Objetivo ON Dietas.Objetivo = Objetivo.IdObjetivo";
+        INNER JOIN Objetivo ON Dietas.Objetivo = Objetivo.IdObjetivo
+        WHERE Documentos.Status <> 3 AND Documentos.Status <> 1";
 
 // Agregar condiciones de filtro si se seleccionaron valores
 if (!empty($tipoCuerpo)) {
-    $sql .= " WHERE Dietas.TipoCuerpo = " . $tipoCuerpo;
+    $sql .= " AND Dietas.TipoCuerpo = " . $tipoCuerpo;
 }
 
 if (!empty($objetivo)) {
-    if (empty($tipoCuerpo)) {
-        $sql .= " WHERE";
-    } else {
-        $sql .= " AND";
-    }
-    $sql .= " Dietas.Objetivo = " . $objetivo;
+    $sql .= " AND Dietas.Objetivo = " . $objetivo;
 }
+
+// Agregar más condiciones de filtro si es necesario
 
 $result = $conn->query($sql);
 
+
 if ($result->num_rows > 0) {
     // Crear una tabla para mostrar los resultados
+    echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
     echo '<table>';
     echo '<tr><th>Título</th><th>Autor</th><th>Contenido</th><th>Tipo de cuerpo</th><th>Objetivo</th></tr>';
 
@@ -57,6 +57,8 @@ if ($result->num_rows > 0) {
 
     echo '</table>';
 } else {
+    echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
     echo 'No se encontraron documentos de dietas que coincidan con los criterios de filtro.';
 }
 

@@ -12,16 +12,13 @@
   <!--Página que aparece al presionar el botón de ejercicios como instructuor.-->
     <!--Barra de menu-->
     <ul class="menu">
-
-      <li><a  href="index.html">Inicio</a></li>
-      <li><a  href="verentrenamientos.html">Ejercicios</a></li>
-      <li><a  href="verdietas.html">Dietas</a></li>
-      </ul>
-     
+         <li><a  href="index.html">Inicio</a></li>
+         <li><a  href="verentrenamientos.html">Ejercicios</a></li>
+         <li><a  href="verdietas.html">Dietas</a></li>
+    </ul> 
           <h1>Registro de Documentos</h1>
       
           <form method="POST" action="CrearContenido.php">
-            <input type="hidden" name="id_usuario" value="<?php echo $idUsuario; ?>">
             <label for="tipo_documento">Tipo de Documento:</label>
             <select name="tipo_documento" id="tipo_documento">
                 <option value=" ">Selecciona un tipo de documento</option>
@@ -77,9 +74,7 @@
     
             <button type="submit">Crear Documento</button>
         </form>
-          <div class="botones">
-            <button onclick="window.location.href='documentos.html'">Administrar Documentos</button>
-        </div>   
+
           <script src="js/CrearContenido.js"></script>
         
       </body>
