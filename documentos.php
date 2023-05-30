@@ -30,12 +30,14 @@ function obtenerDocumentos($conn)
 }
 
 // Función para crear un nuevo documento
-function crearDocumento($conn, $titulo, $contenido)
+function crearDocumento($conn, $titulo, $autor, $status, $contenido)
 {
     $titulo = $conn->real_escape_string($titulo);
     $contenido = $conn->real_escape_string($contenido);
+    $autor = intval($autor);
+    $status = intval($status);
 
-    $sql = "INSERT INTO documentos (TituloDocumento, ContenidoDocumento) VALUES ('$titulo', '$contenido')";
+    $sql = "INSERT INTO documentos (TituloDocumento, IdAutor, Status, ContenidoDocumento) VALUES ('$titulo', $autor, $status, '$contenido')";
 
     if ($conn->query($sql) === TRUE) {
         return true;
@@ -61,13 +63,15 @@ function obtenerDocumento($conn, $idDocumento)
 }
 
 // Función para actualizar un documento existente
-function actualizarDocumento($conn, $idDocumento, $titulo, $contenido)
+function actualizarDocumento($conn, $idDocumento, $titulo, $autor, $status, $contenido)
 {
     $idDocumento = intval($idDocumento);
     $titulo = $conn->real_escape_string($titulo);
     $contenido = $conn->real_escape_string($contenido);
+    $autor = intval($autor);
+    $status = intval($status);
 
-    $sql = "UPDATE documentos SET TituloDocumento = '$titulo', ContenidoDocumento = '$contenido' WHERE IdDocumento = $idDocumento";
+    $sql = "UPDATE documentos SET TituloDocumento = '$titulo', IdAutor = $autor, Status = $status, ContenidoDocumento = '$contenido' WHERE IdDocumento = $idDocumento";
 
     if ($conn->query($sql) === TRUE) {
         return true;
@@ -81,35 +85,28 @@ function eliminarDocumento($conn, $idDocumento)
 {
     $idDocumento = intval($idDocumento);
 
-    // Eliminar registros relacionados en la tabla "entrenamientos"
-    $sqlEntrenamientos = "DELETE FROM entrenamientos WHERE DocumentoId = $idDocumento";
-    $conn->query($sqlEntrenamientos);
+    $sql = "DELETE FROM documentos WHERE IdDocumento = $idDocumento";
 
-    // Eliminar el documento
-    $sqlDocumentos = "DELETE FROM documentos WHERE IdDocumento = $idDocumento";
-
-    if ($conn->query($sqlDocumentos) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         return true;
     } else {
         return false;
     }
 }
 
-
 // Obtener la lista de documentos
 $documentos = obtenerDocumentos($conn);
-// Filtrar documentos con estado 3
-$documentos = array_filter($documentos, function ($documento) {
-    return $documento["Status"] != 3;
-});
+
 // Procesar los formularios
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Crear.
+    // Crear
     if (isset($_POST["crear"])) {
         $titulo = $_POST["titulo"];
+        $autor = $_POST["autor"];
+        $status = $_POST["status"];
         $contenido = $_POST["contenido"];
 
-        if (crearDocumento($conn, $titulo, $contenido)) {
+        if (crearDocumento($conn, $titulo, $autor, $status, $contenido)) {
             // Documento creado exitosamente
             $exitoCrear = "Documento creado exitosamente.";
         } else {
@@ -117,21 +114,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorCrear = "Error al crear el documento.";
         }
     }
-    // Editar.
+
+    // Editar
     if (isset($_POST["editar"])) {
         $idDocumento = $_POST["idDocumento"];
-        $titulo = $_POST["titulo"];
-        $contenido = $_POST["contenido"];
 
-        if (actualizarDocumento($conn, $idDocumento, $titulo, $contenido)) {
+        // Obtener los detalles del documento
+        $documento = obtenerDocumento($conn, $idDocumento);
+
+        if ($documento) {
+            // Mostrar el formulario de edición con los datos del documento
+            ?>
+            <h2>Editar Documento</h2>
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <input type="hidden" name="idDocumento" value="<?php echo $documento["IdDocumento"]; ?>">
+                
+                <label for="titulo">Título:</label>
+                <input type="text" name="titulo" value="<?php echo $documento["TituloDocumento"]; ?>" required><br>
+
+                <label for="autor">Autor:</label>
+                <input type="text" name="autor" value="<?php echo $documento["IdAutor"]; ?>" disabled><br>
+
+                <label for="status">Estado:</label>
+                <input type="text" name="status" value="<?php echo $documento["Status"]; ?>" required><br>
+
+                <label for="contenido">Contenido:</label>
+                <textarea name="contenido" required><?php echo $documento["ContenidoDocumento"]; ?></textarea><br>
+
+                <input type="submit" name="actualizar" value="Actualizar">
+            </form>
+            <?php
+        } else {
+            // No se encontró el documento, mostrar mensaje de error
+            $errorEditar = "Error: No se encontró el documento.";
+        }
+    }
+// Actualizar
+if (isset($_POST["actualizar"])) {
+    $idDocumento = $_POST["idDocumento"];
+    $titulo = $_POST["titulo"];
+    $status = $_POST["status"];
+    $contenido = $_POST["contenido"];
+
+    // Obtener los detalles del documento
+    $documento = obtenerDocumento($conn, $idDocumento);
+
+    if ($documento) {
+        // Mantener el valor original del autor
+        $autor = $documento["IdAutor"];
+
+        if (actualizarDocumento($conn, $idDocumento, $titulo, $autor, $status, $contenido)) {
             // Documento actualizado exitosamente
             $exitoEditar = "Documento actualizado exitosamente.";
         } else {
             // Error al actualizar el documento
             $errorEditar = "Error al actualizar el documento.";
         }
+    } else {
+        // No se encontró el documento, mostrar mensaje de error
+        $errorEditar = "Error: No se encontró el documento.";
     }
-    // Eliminar.
+}
+
+    // Eliminar
     if (isset($_POST["eliminar"])) {
         $idDocumento = $_POST["idDocumento"];
 
@@ -144,64 +189,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+// Cerrar la conexión a la base de datos
+$conn->close();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CRUD de Documentos</title>
-    <link rel="stylesheet" href="css/style01.css">
+    <title>Documentos</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <ul class="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="verentrenamientos.html">Ejercicios</a></li>
-        <li><a href="verdietas.html">Dietas</a></li>
-        <li class="marginLeft button"><a href="Validar Contenido.html" class="specialButton" id="validarContenidoButton">Validar Contenido</a></li>
-        <li class="marginLeft button"><a href="CrearContenido.html" class="specialButton" id="crearContenidoButton">Crear Contenido</a></li>
-        <li class="button"><a href="cerrarSesion.php" class="specialButton" id="cerrarSesionButton" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="verentrenamientos.html">Ejercicios</a></li>
+    <li><a href="verdietas.html">Dietas</a></li>
+</ul>
+<h1>Documentos</h1>
 
-    </ul>
-    <h1>CRUD de Documentos</h1>
+<?php if (isset($exitoCrear)) { ?>
+    <p style="color: green;"><?php echo $exitoCrear; ?></p>
+<?php } ?>
 
-    <!-- Formulario para crear un nuevo documento -->
-    <h2>Crear Documento:</h2>
-    <li class="marginLeft button"><a href="CrearContenido.html" class="specialButton" id="crearContenidoButton">Crear Contenido</a></li>
+<?php if (isset($errorCrear)) { ?>
+    <p style="color: red;"><?php echo $errorCrear; ?></p>
+<?php } ?>
 
-    <!-- Lista de documentos -->
-    <h2>Lista de Documentos</h2>
-    <!-- Mostrar mensaje de éxito o error -->
-    <?php if (isset($exitoEditar)) { echo "<p style='color: green;'>$exitoEditar</p>"; } ?>
-    <?php if (isset($errorEditar)) { echo "<p style='color: red;'>$errorEditar</p>"; } ?>
-    <?php if (isset($exitoEliminar)) { echo "<p style='color: green;'>$exitoEliminar</p>"; } ?>
-    <?php if (isset($errorEliminar)) { echo "<p style='color: red;'>$errorEliminar</p>"; } ?>
-    <table>
+<h2>Crear Documento:</h2>
+<ul class="menu">
+<li><a href="CrearContenido.html">Crear</a></li>
+</ul>
+<h2>Lista de Documentos</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+    <?php foreach ($documentos as $documento) { ?>
         <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Contenido</th>
-            <th>Acciones</th>
-        </tr>
-        <?php foreach ($documentos as $documento) { ?>
-            <tr>
-                <td><?php echo $documento["IdDocumento"]; ?></td>
-                <td><?php echo $documento["TituloDocumento"]; ?></td>
-                <td><?php echo $documento["ContenidoDocumento"]; ?></td>
-                <td>
+            <td><?php echo $documento["IdDocumento"]; ?></td>
+            <td><?php echo $documento["TituloDocumento"]; ?></td>
+            <td><?php echo $documento["IdAutor"]; ?></td>
+            <td><?php echo $documento["Status"]; ?></td>
+            <td>
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <input type="hidden" name="idDocumento" value="<?php echo $documento["IdDocumento"]; ?>">
-    <input type="hidden" name="titulo" value="<?php echo $documento["TituloDocumento"]; ?>">
-    <input type="hidden" name="contenido" value="<?php echo $documento["ContenidoDocumento"]; ?>">
-    <input type="submit" name="editar" value="Editar">
-    <input type="submit" name="eliminar" value="Eliminar">
-</form>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
+                    <input type="hidden" name="idDocumento" value="<?php echo $documento["IdDocumento"]; ?>">
+                    <input type="submit" name="editar" value="Editar">
+                    <input type="submit" name="eliminar" value="Eliminar">
+                </form>
+            </td>
+        </tr>
+    <?php } ?>
+</table>
 
-    <?php if (isset($errorEditar)) { echo "<p>$errorEditar</p>"; } ?>
-    <?php if (isset($errorEliminar)) { echo "<p>$errorEliminar</p>"; } ?>
+<?php if (isset($exitoEditar)) { ?>
+    <p style="color: green;"><?php echo $exitoEditar; ?></p>
+<?php } ?>
 
+<?php if (isset($errorEditar)) { ?>
+    <p style="color: red;"><?php echo $errorEditar; ?></p>
+<?php } ?>
+
+<?php if (isset($exitoEliminar)) { ?>
+    <p style="color: green;"><?php echo $exitoEliminar; ?></p>
+<?php } ?>
+
+<?php if (isset($errorEliminar)) { ?>
+    <p style="color: red;"><?php echo $errorEliminar; ?></p>
+<?php } ?>
 </body>
 </html>
