@@ -3,11 +3,26 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style01.css">
   <title>Documentos de Dietas</title>
 </head>
 <body>
-  <h1>Documentos de Dietas</h1>
+  <ul class="menu">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="verentrenamientos.html">Ejercicios</a></li>
+    <li><a href="verdietas.html">Dietas</a></li>
+    <li class="marginLeft button"><a href="Validar Contenido.html" class="specialButton" id="validarContenidoButton">Validar Contenido</a></li>
+    <li class="marginLeft button"><a href="#" class="specialButton" id="datosInstructoresButton">Datos Instructores</a></li>
+    <li class="marginLeft"><a href="inicioSesion.html" class="specialButton" id="inicioSesionButton">Inicio de Sesión</a></li>
+    <li class="marginLeft"><a href="registro.html" class="specialButton" id="crearRegistroButton">Registro</a></li>
+    <li class="marginLeft button"><a href="CrearContenido.html" class="specialButton" id="crearContenidoButton">Crear Contenido</a></li>
+    <li class="button"><a href="cerrarSesion.php" class="specialButton" id="cerrarSesionButton" onclick="cerrarSesion()">Cerrar Sesión</a></li>
 
+</ul>
+  <h1>Documentos de Dietas</h1>
+  <div class="marginTop">
   <form action="verdietas.php" method="post">
     <label for="tipoCuerpo">Tipo de Cuerpo:</label>
     <select id="tipoCuerpo" name="tipoCuerpo">
@@ -16,7 +31,8 @@
       <option value="2">Mesomorfo</option>
       <option value="3">Endomorfo</option>
     </select>
-
+  </div>
+    <div class="marginTop" class="moverHaciaAbajo">
     <label for="objetivo">Objetivo:</label>
     <select id="objetivo" name="objetivo">
       <option value="">Todos</option>
@@ -24,8 +40,10 @@
       <option value="2">Musculatura</option>
       <option value="3">Fitness</option>
     </select>
-
+    </div>
+    <div class="marginTop" class="moverHaciaAbajo">
     <button type="submit">Filtrar</button>
+    </div>
   </form>
 </body>
 </html>

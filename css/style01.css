@@ -7,6 +7,10 @@ body{
     
 }
 
+h1{
+    text-shadow: 3px 3px 3px grey;
+}
+
 .menu {
     list-style: none;
     padding: 0;
@@ -81,4 +85,12 @@ body{
     float: right;
     display: flex;
 
+}
+
+.moverHaciaAbajo{
+    margin-right: 600px;
+}
+
+.marginTop{
+    margin-top: 80px;
 }
