@@ -17,8 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO Usuarios (NombreUsuario, Correo, Contraseña, Rol) VALUES ('$nombre', '$correo', '$contraseña', '$rol')";
     if (mysqli_query($conn, $sql)) {
+        echo '<link rel="stylesheet" href="css/index.css">';
+        echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';            
         echo "Registro exitoso";
     } else {
+        echo '<link rel="stylesheet" href="css/index.css">';
+        echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';            
         echo "Error al registrar: " . mysqli_error($conn);
     }
 
