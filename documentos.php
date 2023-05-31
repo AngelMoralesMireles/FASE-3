@@ -11,6 +11,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
+echo '<link rel="stylesheet" href="css/index.css">';
+echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
 
 // Función para obtener la lista de documentos
 function obtenerDocumentos($conn)
@@ -139,7 +141,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="autor" value="<?php echo $documento["IdAutor"]; ?>" disabled><br>
 
                 <label for="status">Estado:</label>
-                <input type="text" name="status" value="<?php echo $documento["Status"]; ?>" required><br>
+<select name="status" required>
+    <option value="1" <?php if ($documento["Status"] == 1) echo "selected"; ?>>En espera</option>
+    <option value="2" <?php if ($documento["Status"] == 2) echo "selected"; ?>>Aceptado</option>
+    <option value="3" <?php if ($documento["Status"] == 3) echo "selected"; ?>>Rechazado</option>
+</select><br>
 
                 <label for="contenido">Contenido:</label>
                 <textarea name="contenido" required><?php echo $documento["ContenidoDocumento"]; ?></textarea><br>
@@ -192,6 +198,7 @@ if (isset($_POST["eliminar"])) {
     }
 }
 }
+
 // Cerrar la conexión a la base de datos
 $conn->close();
 ?>
@@ -203,11 +210,6 @@ $conn->close();
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<ul class="menu">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="verentrenamientos.html">Ejercicios</a></li>
-    <li><a href="verdietas.html">Dietas</a></li>
-</ul>
 <h1>Documentos</h1>
 
 <?php if (isset($exitoCrear)) { ?>
@@ -231,6 +233,7 @@ $conn->close();
         <th>Estado</th>
         <th>Acciones</th>
     </tr>
+    
     <?php foreach ($documentos as $documento) { ?>
         <tr>
             <td><?php echo $documento["IdDocumento"]; ?></td>
