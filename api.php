@@ -12,6 +12,9 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
+echo '<link rel="stylesheet" href="css/index.css">';
+echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
+
 // Función para obtener la lista de usuarios
 function obtenerUsuarios($conn)
 {
@@ -211,11 +214,7 @@ $conn->close();
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<ul class="menu">
-         <li><a  href="index.html">Inicio</a></li>
-         <li><a  href="verentrenamientos.html">Ejercicios</a></li>
-         <li><a  href="verdietas.html">Dietas</a></li>
-    </ul> 
+
     <h1>Usuarios</h1>
 
     <?php if (isset($exitoCrear)) { ?>
@@ -247,30 +246,41 @@ $conn->close();
     </form>
 
     <h2>Lista de Usuarios</h2>
-    <table>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre de Usuario</th>
+        <th>Correo Electrónico</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+    </tr>
+    <?php foreach ($usuarios as $usuario) { ?>
         <tr>
-            <th>ID</th>
-            <th>Nombre de Usuario</th>
-            <th>Correo Electrónico</th>
-            <th>Rol</th>
-            <th>Acciones</th>
+            <td><?php echo $usuario["IdUsuario"]; ?></td>
+            <td><?php echo $usuario["NombreUsuario"]; ?></td>
+            <td><?php echo $usuario["Correo"]; ?></td>
+            <td>
+                <?php
+                if ($usuario["Rol"] == 1) {
+                    echo "Instructor";
+                } elseif ($usuario["Rol"] == 2) {
+                    echo "Administrador";
+                } else {
+                    echo "Desconocido";
+                }
+                ?>
+            </td>
+            <td>
+                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                    <input type="hidden" name="idUsuario" value="<?php echo $usuario["IdUsuario"]; ?>">
+                    <input type="submit" name="editar" value="Editar">
+                    <input type="submit" name="eliminar" value="Eliminar">
+                </form>
+            </td>
         </tr>
-        <?php foreach ($usuarios as $usuario) { ?>
-            <tr>
-                <td><?php echo $usuario["IdUsuario"]; ?></td>
-                <td><?php echo $usuario["NombreUsuario"]; ?></td>
-                <td><?php echo $usuario["Correo"]; ?></td>
-                <td><?php echo $usuario["Rol"]; ?></td>
-                <td>
-                    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["IdUsuario"]; ?>">
-                        <input type="submit" name="editar" value="Editar">
-                        <input type="submit" name="eliminar" value="Eliminar">
-                    </form>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
+    <?php } ?>
+</table>
+
 
     <?php if (isset($exitoEditar)) { ?>
         <p style="color: green;"><?php echo $exitoEditar; ?></p>

@@ -264,4 +264,3 @@ $conn->close();
     <p style="color: red;"><?php echo $errorEliminar; ?></p>
 <?php } ?>
 </body>
-</html>

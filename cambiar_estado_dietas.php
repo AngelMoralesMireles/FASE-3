@@ -44,8 +44,8 @@ if ($result->num_rows > 0) {
 
         echo '<label for="status">Estado del Documento: ' . $tituloDocumento . '</label>';
         echo '<select name="status">';
-        echo '<option value="2">2</option>';
-        echo '<option value="3">3</option>';
+        echo '<option value="2">Aceptado</option>';
+        echo '<option value="3">Rechazado</option>';
         echo '</select>';
         echo '<input type="hidden" name="documentoId" value="' . $documentoId . '">';
         echo '<br><br>';
@@ -56,7 +56,7 @@ if ($result->num_rows > 0) {
 } else {
     echo '<link rel="stylesheet" href="css/index.css">';
     echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
-    echo 'No hay documentos con estado 1.';
+    echo 'No hay documentos con estado En espera.';
 }
 
 
