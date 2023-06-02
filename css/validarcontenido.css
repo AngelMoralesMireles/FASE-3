@@ -96,13 +96,13 @@
 }
 .enlace-contenido.boton-ver-contenido {
   color: whitesmoke;
-  background-color: red;
+  background-color: green;
   border: 1px solid black;
   /* Otros estilos que desees aplicar */
 }
 
 .enlace-contenido.boton-ver-contenido:hover {
-  background-color: darkred;
+  background-color: greenyellow;
   /* Otros estilos hover que desees aplicar */
 }
 
