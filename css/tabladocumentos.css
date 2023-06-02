@@ -1,0 +1,30 @@
+
+  .documentos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .documentos-table th,
+  .documentos-table td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .documentos-table th {
+    background-color: #e91d1d;
+    font-weight: bold;
+  }
+
+  .documentos-table td.content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  .documentos-table td {
+    padding: 8px;
+    text-align: left;
+    background-color: rgb(248, 236, 226); /* Agregar el fondo blanco */
+  }

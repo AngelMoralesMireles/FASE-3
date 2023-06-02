@@ -17,7 +17,10 @@ echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="v
 // Función para obtener la lista de documentos
 function obtenerDocumentos($conn)
 {
-    $sql = "SELECT * FROM documentos";
+    $sql = "SELECT documentos.IdDocumento, usuarios.NombreUsuario, documentos.TituloDocumento, status.NombreStatus, documentos.ContenidoDocumento
+            FROM documentos
+            INNER JOIN usuarios ON documentos.IdAutor = usuarios.IdUsuario
+            INNER JOIN status ON documentos.Status = status.IdStatus";
     $result = $conn->query($sql);
 
     $documentos = [];
@@ -208,6 +211,7 @@ $conn->close();
 <head>
     <title>Documentos</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/tabladocumentos.css">
 </head>
 <body>
 <h1>Documentos</h1>
@@ -225,30 +229,33 @@ $conn->close();
 <li><a href="CrearContenido.html">Crear</a></li>
 </ul>
 <h2>Lista de Documentos</h2>
-<table>
+<table class="documentos-table">
+
     <tr>
         <th>ID</th>
         <th>Título</th>
         <th>Autor</th>
         <th>Estado</th>
-        <th>Acciones</th>
+        <th>Contenido</th>
+        <th>Acción</th>
     </tr>
     
     <?php foreach ($documentos as $documento) { ?>
-        <tr>
-            <td><?php echo $documento["IdDocumento"]; ?></td>
-            <td><?php echo $documento["TituloDocumento"]; ?></td>
-            <td><?php echo $documento["IdAutor"]; ?></td>
-            <td><?php echo $documento["Status"]; ?></td>
-            <td>
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <input type="hidden" name="idDocumento" value="<?php echo $documento["IdDocumento"]; ?>">
-                    <input type="submit" name="editar" value="Editar">
-                    <input type="submit" name="eliminar" value="Eliminar">
-                </form>
-            </td>
-        </tr>
-    <?php } ?>
+    <tr>
+        <td><?php echo $documento["IdDocumento"]; ?></td>
+        <td><?php echo $documento["TituloDocumento"]; ?></td>
+        <td><?php echo $documento["NombreUsuario"]; ?></td>
+        <td><?php echo $documento["NombreStatus"]; ?></td>
+        <td><a href="<?php echo $documento["ContenidoDocumento"]; ?>" target="_blank"><button>Ver Contenido</button></a></td>
+        <td>
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <input type="hidden" name="idDocumento" value="<?php echo $documento["IdDocumento"]; ?>">
+                <input type="submit" name="editar" value="Editar">
+                <input type="submit" name="eliminar" value="Eliminar">
+            </form>
+        </td>
+    </tr>
+<?php } ?>
 </table>
 
 <?php if (isset($exitoEditar)) { ?>
