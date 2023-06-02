@@ -1,0 +1,84 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* Formulario */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #990000; /* Color rojo oscuro */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Tabla de usuarios */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.create-user {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+}
+
+.create-user form {
+    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+}
+
+.create-user-image {
+    width: 200px;
+    margin-left: 120px; /* Ajusta el margen izquierdo según sea necesario */
+}

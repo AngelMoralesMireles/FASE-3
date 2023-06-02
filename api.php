@@ -212,6 +212,7 @@ $conn->close();
 <head>
     <title>Usuarios</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/api.css">
 </head>
 <body>
 
@@ -226,6 +227,7 @@ $conn->close();
     <?php } ?>
 
     <h2>Crear Usuario</h2>
+<div class="create-user">
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="nombreUsuario">Nombre de Usuario:</label>
         <input type="text" name="nombreUsuario" required><br>
@@ -244,6 +246,9 @@ $conn->close();
 
         <input type="submit" name="crear" value="Crear">
     </form>
+    <img src="imagenes/usuarios.png" alt="Imagen" class="create-user-image">
+</div>
+
 
     <h2>Lista de Usuarios</h2>
 <table>

@@ -20,10 +20,11 @@ if (isset($_POST['submit'])) {
     // Actualizar el estado del documento en la base de datos
     $updateSql = "UPDATE Documentos SET Status = $status WHERE IdDocumento = $documentoId";
     if ($conn->query($updateSql) === TRUE) {
-        echo "El estado del documento se ha actualizado correctamente.";
+        echo '<p class="success-message">El estado del documento se ha actualizado correctamente.</p>';
     } else {
-        echo "Error al actualizar el estado del documento: " . $conn->error;
+        echo '<p class="error-message">Error al actualizar el estado del documento: ' . $conn->error . '</p>';
     }
+    
 }
 
 // Consulta SQL para obtener los documentos con estado 1 en orden ascendente de ID
@@ -32,33 +33,61 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Mostrar el formulario para cambiar el estado de los documentos
-    echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<link rel="stylesheet" href="css/validarcontenido.css">';
     echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
+    echo '<div class="container">';
     echo '<h2>Cambiar Estado de Documentos</h2>';
-    echo '<h3>Atención. Los documentos se actualizan de abajo hacia arriba.</h3>';
+    echo '<h3>Atención. Los documentos se aceptan o rechazan de abajo hacia arriba.</h3>';
     echo '<form method="POST" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
 
     while ($row = $result->fetch_assoc()) {
         $documentoId = $row['IdDocumento'];
         $tituloDocumento = $row['TituloDocumento'];
+        $contenidoDocumento = $row['ContenidoDocumento'];
 
-        echo '<label for="status">Estado del Documento: ' . $tituloDocumento . '</label>';
+        // Consulta SQL para verificar si el IdDocumento está ligado a la tabla Entrenamientos
+$sqlEntrenamientos = "SELECT * FROM Entrenamientos WHERE DocumentoId = $documentoId";
+$resultEntrenamientos = $conn->query($sqlEntrenamientos);
+
+// Consulta SQL para verificar si el IdDocumento está ligado a la tabla Dietas
+$sqlDietas = "SELECT * FROM Dietas WHERE DocumentoId = $documentoId";
+$resultDietas = $conn->query($sqlDietas);
+
+
+
+echo '<div class="documento">';
+if ($resultEntrenamientos->num_rows > 0) {
+    echo "Tipo de documento: Entrenamiento";
+} elseif ($resultDietas->num_rows > 0) {
+    echo "Tipo de documento: Dieta";
+} else {
+    echo "El IdDocumento no está ligado ni a la tabla Entrenamientos ni a la tabla Dietas.";
+}
+        echo '<div class="documento">';
+        echo '<label for="status">Nombre del Documento: ' . $tituloDocumento . '</label>';
+        echo '<p>Contenido del documento: <a class="enlace-contenido boton-ver-contenido" href="' . $contenidoDocumento . '">Ver Contenido</a></p>';
+
+
+
         echo '<select name="status">';
         echo '<option value="2">Aceptado</option>';
         echo '<option value="3">Rechazado</option>';
+
         echo '</select>';
         echo '<input type="hidden" name="documentoId" value="' . $documentoId . '">';
-        echo '<br><br>';
+        echo '</div>';
     }
 
     echo '<input type="submit" name="submit" value="Actualizar Estado">';
     echo '</form>';
+    echo '</div>';
 } else {
-    echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<link rel="stylesheet" href="css/validarcontenido.css">';
     echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
+    echo '<div class="container">';
     echo 'No hay documentos con estado En espera.';
+    echo '</div>';
 }
-
 
 // Cerrar la conexión
 $conn->close();

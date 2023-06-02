@@ -1,0 +1,123 @@
+        /* ... your existing CSS styles ... */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: green; /* Cambia el color de fondo a rojo */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: greenyellow;
+    /* Cambia el color de fondo al pasar el mouse */
+}
+        .menu {
+            background-color: #f5f5f5;
+            list-style-type: none;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .menu li {
+            float: left;
+        }
+
+        .menu li a {
+            display: block;
+            color: #000000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            background-color: #ff0000; /* Cambia el color de fondo a rojo */
+            border: 1px solid #000000; /* Agrega un borde negro */
+
+        }
+
+        .menu li a:hover {
+            background-color: #cc0000; /* Cambia el color de fondo al pasar el mouse */
+        }
+
+        .menu .marginLeft {
+            margin-left: 20px;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .formulario label,
+        .formulario input {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .contenedor {
+            display: flex;
+            align-items: center;
+        }
+
+        .formulario {
+            flex: 1;
+        }
+
+        .imagen-logo {
+            margin-left: 0px; /* Adjust margin as needed */
+            margin-right: 300px;
+        }
+
+        .logo {
+            margin-top: 30px;
+                border:#000000;
+            width: 280px; /* Adjust width as needed */
+            height: auto; /* Height will adjust automatically based on the width */
+        }
+
+                /* Center the "Iniciar sesión" button */
+        .formulario input[type="submit"] {
+            align-self: center;
+        }
