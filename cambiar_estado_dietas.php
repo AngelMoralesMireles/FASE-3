@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Contenido</title>
+    <style>
+    body {
+        background-color: lightgray;
+    }
+
+</style>
+</head>
+<body>
+    
+</body>
+</html>
+
 <?php
 $servername = "127.0.0.1:3308";
 $username = "root";
@@ -65,7 +84,7 @@ if ($resultEntrenamientos->num_rows > 0) {
 }
         echo '<div class="documento">';
         echo '<label for="status">Nombre del Documento: ' . $tituloDocumento . '</label>';
-        echo '<p>Contenido del documento: <a class="enlace-contenido boton-ver-contenido" href="' . $contenidoDocumento . '">Ver Contenido</a></p>';
+        echo '<p>Contenido del documento: <a href="' . $contenidoDocumento . '">' . $contenidoDocumento . '</a></p>';
 
 
 

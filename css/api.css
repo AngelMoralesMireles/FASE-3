@@ -11,7 +11,7 @@ h1 {
 }
 
 h2 {
-    color: #555;
+    color: #333;
 }
 
 p {
@@ -35,12 +35,13 @@ input[type="password"],
 select {
     width: 200px;
     padding: 5px;
+    margin-left: 30px;
     border: 1px solid #ccc;
 }
 
 input[type="submit"] {
     padding: 5px 10px;
-    background-color: #990000; /* Color rojo oscuro */
+    background-color: red; /* Color rojo oscuro */
     color: #fff;
     border: none;
     cursor: pointer;
@@ -69,9 +70,10 @@ tr:hover {
 }
 
 .create-user {
-    display: flex;
+    display: flex;  
     align-items: flex-start;
     margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+
 }
 
 .create-user form {

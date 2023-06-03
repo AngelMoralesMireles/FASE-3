@@ -50,7 +50,8 @@
     margin-top: 10px;
     background-color: #FF0000;
     color: #FFF;
-    border: none;
+    border: 2px;
+    border-color: black;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -116,3 +117,4 @@
 .documento:first-child {
   border-top: none;
 }
+

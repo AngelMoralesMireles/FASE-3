@@ -40,7 +40,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Crear una tabla para mostrar los resultados
     echo '<link rel="stylesheet" href="css/index.css">';
-    echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
+    echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li> <li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
     echo '<table>';
     echo '<tr><th>Título</th><th>Autor</th><th>Contenido</th><th>Tipo de cuerpo</th><th>Objetivo</th></tr>';
 

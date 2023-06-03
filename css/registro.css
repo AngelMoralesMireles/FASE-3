@@ -110,7 +110,7 @@ input[type="submit"]:hover {
 }
 
 .imagen-registro {
-    max-width: 200px; /* Ajusta el valor según tus necesidades */
+    max-width: 250px; /* Ajusta el valor según tus necesidades */
     height: auto; /* Permite que la altura se ajuste proporcionalmente */
 }
     

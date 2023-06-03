@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 echo '<link rel="stylesheet" href="css/index.css">';
-echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
+echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li> <li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
 
 // Función para obtener la lista de documentos
 function obtenerDocumentos($conn)
@@ -215,6 +215,7 @@ $conn->close();
 </head>
 <body>
 <h1>Documentos</h1>
+<img src="imagenes/documentos.png" style="float: right; margin-bottom: 20px; margin-right: 450px" width="200" height="200">
 
 <?php if (isset($exitoCrear)) { ?>
     <p style="color: green;"><?php echo $exitoCrear; ?></p>
@@ -226,7 +227,7 @@ $conn->close();
 
 <h2>Crear Documento:</h2>
 <ul class="menu">
-<li><a href="CrearContenido.html">Crear</a></li>
+<li style="margin-left: 80px"><a style="background-color:#47ff47" href="CrearContenido.html">Crear</a></li>
 </ul>
 <h2>Lista de Documentos</h2>
 <table class="documentos-table">

@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style01.css">
+  <link rel="stylesheet" href="css/verdietasyejercicios.css">
   <title>Documentos de Ejercicios</title>
 </head>
 <body>
@@ -15,37 +14,40 @@
     <li><a href="verdietas.html">Dietas</a></li>
     <li class="marginLeft button"><a href="cambiar_estado_dietas.php" class="specialButton" id="validarContenidoButton">Validar Contenido</a></li>
     <li class="marginLeft button"><a href="api.php" class="specialButton" id="datosInstructoresButton">Datos Instructores</a></li>
-    <li class="marginLeft button"><a href="documentos.php" class="specialButton" id="administrarDocumentosButton">Documentos</a></li>
+    <li class="marginLeft button"><a href="documentos.php" class="specialButton" id="administrarDocumentosButton">Ver Documentos</a></li>
     <li class="marginLeft"><a href="inicioSesion.html" class="specialButton" id="inicioSesionButton">Inicio de Sesión</a></li>
     <li class="marginLeft"><a href="registro.html" class="specialButton" id="crearRegistroButton">Registro</a></li>
     <li class="marginLeft button"><a href="CrearContenido.html" class="specialButton" id="crearContenidoButton">Crear Contenido</a></li>
     <li class="button"><a href="cerrarSesion.php" class="specialButton" id="cerrarSesionButton" onclick="cerrarSesion()">Cerrar Sesión</a></li>
-
-</ul>
+  </ul>
   <h1>Documentos de Ejercicios</h1>
-<div class="marginTop">
-  <form action="verentrenamientos.php" method="post">
-    <label for="sexo">Sexo:</label>
-    <select id="sexo" name="sexo">
-      <option value="">Todos</option>
-      <option value="1">Hombre</option>
-      <option value="2">Mujer</option>
-    </select>
-  </div>
-    <div class="marginTop" class="moverHaciaAbajo">
-
-    <label for="nivel">Nivel:</label>
-    <select id="nivel" name="nivel">
-      <option value="">Todos</option>
-      <option value="1">Principiante</option>
-      <option value="2">Intermedio</option>
-      <option value="3">Avanzado</option>
-    </select>
-  </div>
-  <div class="marginTop" class="moverHaciaAbajo">
-    <button type="submit">Filtrar</button>
-  </div>
-  </form>
+  <div class="marginTop">
+    <div class="container">
+      <form action="verentrenamientos.php" method="post">
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <select id="sexo" name="sexo">
+            <option value="">Todos</option>
+            <option value="1">Hombre</option>
+            <option value="2">Mujer</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <label for="nivel">Nivel:</label>
+          <select id="nivel" name="nivel">
+            <option value="">Todos</option>
+            <option value="1">Principiante</option>
+            <option value="2">Intermedio</option>
+            <option value="3">Avanzado</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <button type="submit" class="filter-button">Filtrar</button>
+        </div>
+      </form>
+    </div>
   <script src="js/index.js"></script>
 </body>
 </html>

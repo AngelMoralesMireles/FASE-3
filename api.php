@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 echo '<link rel="stylesheet" href="css/index.css">';
-echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li><li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
+echo '<ul class="menu"> <li><a  href="index.html">Inicio</a></li> <li><a  href="verentrenamientos.html">Ejercicios</a></li> <li><a  href="verdietas.html">Dietas</a></li> </ul>';
 
 // Función para obtener la lista de usuarios
 function obtenerUsuarios($conn)
@@ -244,7 +244,7 @@ $conn->close();
             <option value="2">Instructor</option>
         </select><br>
 
-        <input type="submit" name="crear" value="Crear">
+        <input style="background-color: green; margin-top:10px; margin-left:30px" type="submit" name="crear" value="Crear">
     </form>
     <img src="imagenes/usuarios.png" alt="Imagen" class="create-user-image">
 </div>
@@ -253,11 +253,11 @@ $conn->close();
     <h2>Lista de Usuarios</h2>
 <table>
     <tr>
-        <th>ID</th>
-        <th>Nombre de Usuario</th>
-        <th>Correo Electrónico</th>
-        <th>Rol</th>
-        <th>Acciones</th>
+    <th style="background-color: red; border-color: black;">ID</th>
+        <th style="background-color: red; border-color: black;">Nombre de Usuario</th>
+        <th style="background-color: red; border-color: black;">Correo Electrónico</th>
+        <th style="background-color: red; border-color: black;">Rol</th>
+        <th style="background-color: red; border-color: black;">Acciones</th>
     </tr>
     <?php foreach ($usuarios as $usuario) { ?>
         <tr>

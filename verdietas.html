@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style01.css">
+  <link rel="stylesheet" href="css/verdietasyejercicios.css">
   <title>Documentos de Dietas</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <li><a href="verdietas.html">Dietas</a></li>
     <li class="marginLeft button"><a href="cambiar_estado_dietas.php" class="specialButton" id="validarContenidoButton">Validar Contenido</a></li>
     <li class="marginLeft button"><a href="api.php" class="specialButton" id="datosInstructoresButton">Datos Instructores</a></li>
-    <li class="marginLeft button"><a href="documentos.php" class="specialButton" id="administrarDocumentosButton">Documentos</a></li>
+    <li class="marginLeft button"><a href="documentos.php" class="specialButton" id="administrarDocumentosButton">Ver Documentos</a></li>
     <li class="marginLeft"><a href="inicioSesion.html" class="specialButton" id="inicioSesionButton">Inicio de Sesión</a></li>
     <li class="marginLeft"><a href="registro.html" class="specialButton" id="crearRegistroButton">Registro</a></li>
     <li class="marginLeft button"><a href="CrearContenido.html" class="specialButton" id="crearContenidoButton">Crear Contenido</a></li>
@@ -23,29 +23,33 @@
 
 </ul>
   <h1>Documentos de Dietas</h1>
-  <div class="marginTop">
-  <form action="verdietas.php" method="post">
-    <label for="tipoCuerpo">Tipo de Cuerpo:</label>
-    <select id="tipoCuerpo" name="tipoCuerpo">
-      <option value="">Todos</option>
-      <option value="1">Ectomorfo</option>
-      <option value="2">Mesomorfo</option>
-      <option value="3">Endomorfo</option>
-    </select>
+  <div class="container">
+    <form action="verdietas.php" method="post">
+      <div class="form-group">
+        <label for="tipoCuerpo">Tipo de Cuerpo:</label>
+        <select id="tipoCuerpo" name="tipoCuerpo">
+          <option value="">Todos</option>
+          <option value="1">Ectomorfo</option>
+          <option value="2">Mesomorfo</option>
+          <option value="3">Endomorfo</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="objetivo">Objetivo:</label>
+        <select id="objetivo" name="objetivo">
+          <option value="">Todos</option>
+          <option value="1">Pérdida de peso</option>
+          <option value="2">Musculatura</option>
+          <option value="3">Fitness</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="filter-button">Filtrar</button>
+      </div>
+    </form>
   </div>
-    <div class="marginTop" class="moverHaciaAbajo">
-    <label for="objetivo">Objetivo:</label>
-    <select id="objetivo" name="objetivo">
-      <option value="">Todos</option>
-      <option value="1">Pérdida de peso</option>
-      <option value="2">Musculatura</option>
-      <option value="3">Fitness</option>
-    </select>
-    </div>
-    <div class="marginTop" class="moverHaciaAbajo">
-    <button type="submit">Filtrar</button>
-    </div>
-  </form>
   <script src="js/index.js"></script>
 </body>
 </html>
