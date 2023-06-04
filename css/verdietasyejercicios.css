@@ -1,100 +1,113 @@
 body {
-    background-color: #f8f8f8;
-    color: #333333;
-    font-family: Arial, sans-serif;
-  }
+  background-color: #e9e7e7;
+  color: #333333;
+  font-family: Arial, sans-serif;
+}
 
-  h1 {
-    color: black;
-    text-align: center;
-  }
+h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
-  .menu {
-    padding: 10px;
-    list-style: none;
-    margin: 0;
-  }
+  color: black;
+  text-align: center;
+}
 
-  .menu li {
-    display: inline-block;
-    margin-right: 10px;
-  }
+.menu {
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+}
 
-  .menu li a {
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px; /* Ajustar el padding para hacer los botones más grandes */
-    border: 1px solid #000000;
-    border-radius: 3px;
-    background-color: red;
-    font-size: 16px; /* Ajustar el tamaño del texto para hacer los botones más grandes */
-  }
+.menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
 
-  .menu li a:hover {
-    background-color: #ff0000;
-  }
+.menu li a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px; /* Ajustar el padding para hacer los botones más grandes */
+  border: 1px solid #000000;
+  border-radius: 3px;
+  background-color: red;
+  font-size: 16px; /* Ajustar el tamaño del texto para hacer los botones más grandes */
+}
 
-  .button {
-    background-color: transparent;
-   
-    border-radius: 3px;
-    padding: 10px 10px; /* Ajustar el padding para hacer los botones más grandes */
-    color: #000000;
-    text-decoration: none;
-    font-size: 16px; /* Ajustar el tamaño del texto para hacer los botones más grandes */
-  }
+.menu li a:hover {
+  background-color: #ff0000;
+}
 
-  .button:hover {
-    
-    color: #ffffff;
-  }
+.button {
+  background-color: transparent;
+ 
+  border-radius: 3px;
+  padding: 10px 10px; /* Ajustar el padding para hacer los botones más grandes */
+  color: #000000;
+  text-decoration: none;
+  font-size: 16px; /* Ajustar el tamaño del texto para hacer los botones más grandes */
+}
+
+.button:hover {
   
-  button[type="submit"] {
-    background-color: green;
-    color: #ffffff;
-    font-size: 18px;
-    padding: 12px 20px;
-  }
+  color: #ffffff;
+}
+
+button[type="submit"] {
+  background-color: green;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 12px 20px;
+}
 
 
-  
+
 .container {
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 14px;
-  }
-  
-  button.filter-button {
-    background-color: green;
-    color: #ffffff;
-    font-size: 18px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  button.filter-button:hover {
-    opacity: 0.8;
-  }
+  display: flex;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.image-container {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+select {
+  margin-left: 30px;
+  width: 150%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+button.filter-button {
+  background-color: green;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button.filter-button:hover {
+  opacity: 0.8;
+}
   
